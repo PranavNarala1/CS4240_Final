@@ -1,0 +1,2 @@
+class NBADataService(object):
+    pass
