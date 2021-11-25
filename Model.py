@@ -10,8 +10,9 @@ class Model(object):
 
     def __init__(self, input_loss="sparse_categorical_crossentropy", input_optimizer="adam"):
         self.model = keras.models.Sequential([
-            keras.layers.Dense(20, activation="relu"),
-            keras.layers.Dense(20, activation="relu"),
+            keras.layers.Dense(25, activation="swish"),
+            keras.layers.Dense(25, activation="swish"),
+            keras.layers.Dense(25, activation="swish"),
             keras.layers.Dense(1, activation="sigmoid")
         ])
         self.model.compile(input_loss, input_optimizer, metrics="accuracy")
@@ -24,7 +25,7 @@ class Model(object):
 
     def make_prediction(self, away_team, home_team, year):
         #Make sure that the home_team and away_team formatting with the model is consistent.
-        x_test =
+        x_test = NBADataService.get_x_test(away_team, home_team, year)
         return f"{home_team} has a {model.predict(x_test)}% chance of winning"
 
     def save_model(self, file_path):
