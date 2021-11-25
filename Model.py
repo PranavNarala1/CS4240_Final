@@ -23,10 +23,12 @@ class Model(object):
     def analyze_training(self):
         pd.DataFrame(self.history.history).plot(figsize=(16, 10))
 
-    def make_prediction(self, away_team, home_team, year):
+    def make_prediction(self, team_1, team_2, year):
         #Make sure that the home_team and away_team formatting with the model is consistent.
-        x_test = NBADataService.get_x_test(away_team, home_team, year)
-        return f"{home_team} has a {model.predict(x_test)}% chance of winning"
+        x_test_1 = NBADataService.get_x_test(team_1, team_2, year)
+        x_test_2 = NBADataService.get_x_test(team_2, team_1, year)
+        prediction = (x_test_1 + x_test_2) / 2.0
+        return f"{home_team} has a {prediction * 100}% chance of winning"
 
     def save_model(self, file_path):
         self.model.save(file_path)
