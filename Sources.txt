@@ -1,4 +1,5 @@
-Sources (where we got the data from):
+Sources (where we got data from):
 
 https://www.kaggle.com/druswick/nba-team-records-historic
 https://www.kaggle.com/nathanlauga/nba-games?select=games.csv
+https://www.nba.com/stats/teams/advanced/?sort=W&dir=-1&Season=2017-18&SeasonType=Regular%20Season
