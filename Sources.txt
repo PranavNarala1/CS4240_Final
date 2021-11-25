@@ -1,0 +1,4 @@
+Sources (where we got the data from):
+
+https://www.kaggle.com/druswick/nba-team-records-historic
+https://www.kaggle.com/nathanlauga/nba-games?select=games.csv
