@@ -5,8 +5,8 @@ import NBADataService
 
 class Model(object):
 
-    x_train = NBADataService.
-    y_train = NBADataService.
+    x_train = NBADataService.get_x_train()
+    y_train = NBADataService.get_y_train()
 
     def __init__(self, input_loss="sparse_categorical_crossentropy", input_optimizer="adam"):
         self.model = keras.models.Sequential([
@@ -24,6 +24,7 @@ class Model(object):
 
     def make_prediction(self, away_team, home_team, year):
         #Make sure that the home_team and away_team formatting with the model is consistent.
+        x_test =
         return f"{home_team} has a {model.predict(x_test)}% chance of winning"
 
     def save_model(self, file_path):

@@ -12,5 +12,17 @@ def get_win_percentage(team_name, year):
 def get_offensive_rating(team_name, year):
     team_regular_season_data = pd.read_csv('NBA_Team_Stats_Regular_Season.csv')
     for row in team_regular_season_data.iterrows():
-        if row[1].split()[1].lower() == team_name.lower() and row[0] == year:
-            return row[6]
+        if row[1][1].split()[-1].lower() == team_name.lower() and row[1][0] == year:
+            return row[1][6]
+
+def get_defensive_rating(team_name, year):
+    team_regular_season_data = pd.read_csv('NBA_Team_Stats_Regular_Season.csv')
+    for row in team_regular_season_data.iterrows():
+        if row[1][1].split()[-1].lower() == team_name.lower() and row[1][0] == year:
+            return row[1][7]
+
+def get_x_train():
+    pass
+
+def get_y_train():
+    pass
