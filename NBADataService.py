@@ -71,9 +71,9 @@ def get_x_train():
         year_data = pd.read_csv(fr'regular_season_box_score_data\{year}_Regular_box_scores.csv')
         for row in year_data.iterrows():
             #Prevents double addition of games into train_list
-            if row[1][1].split()[1] == 'vs.':
-                home_team = to_team_name(row[1][1].split()[0], year)
-                away_team = to_team_name(row[1][1].split()[2], year)
+            if row[1][0].split()[1] == 'vs.':
+                home_team = to_team_name(row[1][0].split()[0], year)
+                away_team = to_team_name(row[1][0].split()[2], year)
                 x_train_list.append([
                         get_win_percentage(home_team, year),
                         get_win_percentage(away_team, year),
@@ -94,8 +94,8 @@ def get_y_train():
         year_data = pd.read_csv(fr'regular_season_box_score_data\{year}_Regular_box_scores.csv')
         for row in year_data.iterrows():
             #Prevents double addition of games into train_list
-            if row[1][1].split()[1] == 'vs.':
-                if row[1][3] == 'W':
+            if row[1][0].split()[1] == 'vs.':
+                if row[1][1] == 'W':
                     y_train_list.append(1)
                 else:
                     y_train_list.append(0)

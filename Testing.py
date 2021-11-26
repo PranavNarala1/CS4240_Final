@@ -1,7 +1,6 @@
-#This class will be used for testing purposes.
+#This file will be used for testing purposes.
 
-import Model
-import NBADataService
+from Model import Model
 
 #print(NBADataService.get_offensive_rating("Mavericks", "2011-12"))
 #print(NBADataService.get_defensive_rating("Nuggets", "2009-10"))
