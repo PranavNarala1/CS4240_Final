@@ -8,14 +8,14 @@ class Model(object):
     x_train = NBADataService.get_x_train()
     y_train = NBADataService.get_y_train()
 
-    def __init__(self, input_loss="sparse_categorical_crossentropy", input_optimizer="adam"):
+    def __init__(self):
         self.model = keras.models.Sequential([
             keras.layers.Dense(25, activation="swish"),
             keras.layers.Dense(25, activation="swish"),
             keras.layers.Dense(25, activation="swish"),
             keras.layers.Dense(1, activation="sigmoid")
         ])
-        self.model.compile(input_loss, input_optimizer, metrics="accuracy")
+        self.model.compile(loss="binary_crossentropy", optimizer="adam", metrics="accuracy")
 
     def train(self, epochs=10):
         self.history = self.model.fit(x_train, y_train, epochs)
