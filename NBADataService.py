@@ -77,12 +77,13 @@ def get_x_train():
                 x_train_list.append([
                         get_win_percentage(home_team, year),
                         get_win_percentage(away_team, year),
-                        get_offensive_rating(home_team, year),
-                        get_offensive_rating(away_team, year),
-                        get_defensive_rating(home_team, year),
-                        get_defensive_rating(away_team, year)
+                        get_offensive_rating(home_team, year) / 120,
+                        get_offensive_rating(away_team, year) / 120,
+                        get_defensive_rating(home_team, year) / 120,
+                        get_defensive_rating(away_team, year) / 120
                         ])
-
+    x_train_data_array = np.asarray(x_train_list).astype(np.float32) #--------
+    np.savetxt('x_train_data', x_train_data_array, ) #--------
     return np.asarray(x_train_list).astype(np.float32)
 
 
@@ -99,8 +100,9 @@ def get_y_train():
                     y_train_list.append(1)
                 else:
                     y_train_list.append(0)
-
-    return np.asarray(y_train_list).astype(np.int)
+    y_train_data_array = np.asarray(y_train_list).astype(np.float32) #--------
+    np.savetxt('y_train_data', y_train_data_array, ) #--------
+    return np.asarray(y_train_list).astype(np.int64)
 
 #Standardize data later so that offensive and defensive ratings are values from 0-1
 def get_x_test(away_team, home_team, year):
