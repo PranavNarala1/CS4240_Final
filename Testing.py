@@ -13,8 +13,8 @@ from Model import Model
 
 test_model_trained_with_all_13_seasons = Model()
 test_model_trained_with_all_13_seasons.load_model('test_model_trained_with_all_13_seasons')
-print(test_model_trained_with_all_13_seasons.make_prediction('Celtics', 'Grizzlies', '2007-08'))
-print(test_model_trained_with_all_13_seasons.make_prediction('Grizzlies', 'Celtics', '2007-08'))
+print(test_model_trained_with_all_13_seasons.make_prediction('Rockets', 'Lakers', '2007-08'))
+print(test_model_trained_with_all_13_seasons.make_prediction('Lakers', 'Rockets', '2007-08'))
 
 
 #with open('x_train_data', 'r') as x_train_data:

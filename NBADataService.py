@@ -68,7 +68,7 @@ def to_team_name(abbreviation, year):
 
 def get_x_train():
     x_train_list = []
-    for x in range(3): #Change back to 13-----------------------------------------------
+    for x in range(13):
         year = f'{2005 + x}-{str(2006 + x)[2:]}'
         year_data = pd.read_csv(fr'regular_season_box_score_data\{year}_Regular_box_scores.csv')
         for row in year_data.iterrows():
@@ -92,7 +92,7 @@ def get_x_train():
 
 def get_y_train():
     y_train_list = []
-    for x in range(3): #Change back to 13-----------------------------------------------
+    for x in range(13):
         year = f'{2005 + x}-{str(2006 + x)[2:]}'
         year_data = pd.read_csv(fr'regular_season_box_score_data\{year}_Regular_box_scores.csv')
         for row in year_data.iterrows():
