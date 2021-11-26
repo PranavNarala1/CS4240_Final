@@ -31,7 +31,7 @@ class Model(object):
         team_1_output = self.model.predict(x_test)[0][0]
         print(f'team 1 winning chances: {team_1_output}') #---------
         print(f'team 2 winning chances: {team_2_output}') #---------
-        if team_2_output < team_1_output:
+        if team_2_output > team_1_output:
             return team_2
         else:
             return team_1
