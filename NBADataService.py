@@ -3,7 +3,6 @@ import numpy as np
 
 #Data Year Range: (2005-06) to (2017-18)
 
-#Account for team name changes (ex. Bobcats to Hornets)------------------------------
 abbreviation_to_name = {
 'ATL'	: 'Atlanta Hawks',
 'BOS'	: 'Boston Celtics',
@@ -109,5 +108,3 @@ def get_x_test(away_team, home_team, year):
             get_offensive_rating(home_team, year), get_offensive_rating(away_team, year),
             get_defensive_rating(home_team, year), get_defensive_rating(away_team, year)]
 
-print(get_x_train())
-#print(get_y_train())

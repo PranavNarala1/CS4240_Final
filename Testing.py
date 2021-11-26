@@ -9,3 +9,4 @@ import NBADataService
 test_model = Model()
 test_model.train()
 test_model.analyze_training()
+test_model.save('test_model')
