@@ -68,22 +68,22 @@ def to_team_name(abbreviation, year):
 
 def get_x_train():
     x_train_list = []
-    for x in range(13):
+    for x in range(3): #Change back to 13-----------------------------------------------
         year = f'{2005 + x}-{str(2006 + x)[2:]}'
         year_data = pd.read_csv(fr'regular_season_box_score_data\{year}_Regular_box_scores.csv')
         for row in year_data.iterrows():
             #Prevents double addition of games into train_list
-            if row[1][0].split()[1] == 'vs.':
-                home_team = to_team_name(row[1][0].split()[0], year)
-                away_team = to_team_name(row[1][0].split()[2], year)
-                x_train_list.append([
-                        get_win_percentage(home_team, year),
-                        get_win_percentage(away_team, year),
-                        get_offensive_rating(home_team, year) / 120,
-                        get_offensive_rating(away_team, year) / 120,
-                        get_defensive_rating(home_team, year) / 120,
-                        get_defensive_rating(away_team, year) / 120
-                        ])
+            #if row[1][0].split()[1] == 'vs.':
+            team_2 = to_team_name(row[1][0].split()[0], year)
+            team_1 = to_team_name(row[1][0].split()[2], year)
+            x_train_list.append([
+                    get_win_percentage(team_2, year),
+                    get_win_percentage(team_1, year),
+                    get_offensive_rating(team_2, year) / 120,
+                    get_offensive_rating(team_1, year) / 120,
+                    get_defensive_rating(team_2, year) / 120,
+                    get_defensive_rating(team_1, year) / 120
+                    ])
     x_train_data_array = np.asarray(x_train_list).astype(np.float32) #--------
     np.savetxt('x_train_data', x_train_data_array, ) #--------
     return np.asarray(x_train_list).astype(np.float32)
@@ -92,23 +92,22 @@ def get_x_train():
 
 def get_y_train():
     y_train_list = []
-    for x in range(13):
+    for x in range(3): #Change back to 13-----------------------------------------------
         year = f'{2005 + x}-{str(2006 + x)[2:]}'
         year_data = pd.read_csv(fr'regular_season_box_score_data\{year}_Regular_box_scores.csv')
         for row in year_data.iterrows():
             #Prevents double addition of games into train_list
-            if row[1][0].split()[1] == 'vs.':
-                if row[1][1] == 'W':
-                    y_train_list.append(1)
-                else:
-                    y_train_list.append(0)
+            #if row[1][0].split()[1] == 'vs.':
+            if row[1][1] == 'W':
+                y_train_list.append(1)
+            else:
+                y_train_list.append(0)
     y_train_data_array = np.asarray(y_train_list).astype(np.float32) #--------
     np.savetxt('y_train_data', y_train_data_array, ) #--------
     return np.asarray(y_train_list).astype(np.int64)
 
 #Standardize data later so that offensive and defensive ratings are values from 0-1
-def get_x_test(away_team, home_team, year):
-    return [[get_win_percentage(home_team, year), get_win_percentage(away_team, year),
-            get_offensive_rating(home_team, year), get_offensive_rating(away_team, year),
-            get_defensive_rating(home_team, year), get_defensive_rating(away_team, year)]]
-
+def get_x_test(team_1, team_2, year):
+    return [[get_win_percentage(team_2, year), get_win_percentage(team_1, year),
+            get_offensive_rating(team_2, year), get_offensive_rating(team_1, year),
+            get_defensive_rating(team_2, year), get_defensive_rating(team_1, year)]]
