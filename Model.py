@@ -5,9 +5,6 @@ import NBADataService
 
 class Model(object):
 
-    x_train = NBADataService.get_x_train()
-    y_train = NBADataService.get_y_train()
-
     def __init__(self):
         self.model = keras.models.Sequential([
             keras.layers.Dense(25, activation="swish"),
@@ -18,6 +15,8 @@ class Model(object):
         self.model.compile(loss="binary_crossentropy", optimizer="adam", metrics="accuracy")
 
     def train(self, epochs=10):
+        x_train = NBADataService.get_x_train()
+        y_train = NBADataService.get_y_train()
         self.history = self.model.fit(x_train, y_train, epochs)
 
     def analyze_training(self):
