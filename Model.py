@@ -15,21 +15,19 @@ class Model(object):
         ])
         self.model.compile(loss="binary_crossentropy", optimizer="adam", metrics="accuracy")
 
-    def train(self, epochs=10):
+    def train(self):
         x_train = NBADataService.get_x_train()
         y_train = NBADataService.get_y_train()
-        self.history = self.model.fit(x_train, y_train, epochs)
+        self.history = self.model.fit(x_train, y_train, epochs=10)
 
     def analyze_training(self):
         pd.DataFrame(self.history.history).plot(figsize=(16, 10))
 
     #Fix make_prediction
-    def make_prediction(self, team_1, team_2, year):
+    def make_prediction(self, away_team, home_team, year):
         #Make sure that the home_team and away_team formatting with the model is consistent.
-        x_test_1 = NBADataService.get_x_test(team_1, team_2, year)
-        x_test_2 = NBADataService.get_x_test(team_2, team_1, year)
-        prediction = (x_test_1 + x_test_2) / 2.0
-        return f"{home_team} has a {prediction * 100}% chance of winning"
+        x_test = NBADataService.get_x_test(away_team, home_team, year)
+        return f"The {home_team} have a {self.model.predict(x_test)[0][0] * 100}% chance of winning"
 
     def save_model(self, file_path):
         self.model.save(file_path)

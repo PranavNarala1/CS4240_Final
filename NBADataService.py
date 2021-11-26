@@ -104,7 +104,7 @@ def get_y_train():
 
 #Standardize data later so that offensive and defensive ratings are values from 0-1
 def get_x_test(away_team, home_team, year):
-    return [get_win_percentage(home_team, year), get_win_percentage(away_team, year),
+    return [[get_win_percentage(home_team, year), get_win_percentage(away_team, year),
             get_offensive_rating(home_team, year), get_offensive_rating(away_team, year),
-            get_defensive_rating(home_team, year), get_defensive_rating(away_team, year)]
+            get_defensive_rating(home_team, year), get_defensive_rating(away_team, year)]]
 
