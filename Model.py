@@ -2,6 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import NBADataService
+import pandas as pd
 
 class Model(object):
 
@@ -22,6 +23,7 @@ class Model(object):
     def analyze_training(self):
         pd.DataFrame(self.history.history).plot(figsize=(16, 10))
 
+    #Fix make_prediction
     def make_prediction(self, team_1, team_2, year):
         #Make sure that the home_team and away_team formatting with the model is consistent.
         x_test_1 = NBADataService.get_x_test(team_1, team_2, year)

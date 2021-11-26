@@ -83,7 +83,7 @@ def get_x_train():
                         get_defensive_rating(away_team, year)
                         ])
 
-    return np.array(x_train_list)
+    return np.asarray(x_train_list).astype(np.float32)
 
 
 
@@ -100,7 +100,7 @@ def get_y_train():
                 else:
                     y_train_list.append(0)
 
-    return np.array(y_train_list)
+    return np.asarray(y_train_list).astype(np.int)
 
 #Standardize data later so that offensive and defensive ratings are values from 0-1
 def get_x_test(away_team, home_team, year):
