@@ -31,12 +31,13 @@ abbreviation_to_name = {
 'OKC'	: 'Oklahoma City Thunder',
 'ORL'	: 'Orlando Magic',
 'PHI'	: 'Philadelphia 76ers',
-'PHO'	: 'Phoenix Suns',
+'PHX'	: 'Phoenix Suns',
 'POR'	: 'Portland Trail Blazers',
 'SAC'	: 'Sacramento Kings',
+'SAS'   : 'San Antonio Spurs',
 'SEA'   : 'Seattle Supersonics',
 'TOR'	: 'Toronto Raptors',
-'UTH'	: 'Utah Jazz',
+'UTA'	: 'Utah Jazz',
 'WAS'	: 'Washington Wizards'
 }
 
