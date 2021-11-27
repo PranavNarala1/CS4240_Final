@@ -18,7 +18,7 @@ class DecisionTreeModel(object):
         return tree_prediction
 
     def save_model(self, file_path):
-        joblib.dump(self.model, file_path)
+        joblib.dump(self.tree_model, file_path)
 
     def load_model(self, file_path):
-        self.model = joblib.load(file_path)
+        self.tree_model = joblib.load(file_path)
