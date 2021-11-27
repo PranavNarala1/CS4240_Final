@@ -23,14 +23,11 @@ class Model(object):
     def analyze_training(self):
         pd.DataFrame(self.history.history).plot(figsize=(16, 10))
 
-    #Fix make_prediction
     def make_prediction(self, team_1, team_2, year):
         x_test = NBADataService.get_x_test(team_1, team_2, year)
         team_2_output = self.model.predict(x_test)[0][0]
         x_test = NBADataService.get_x_test(team_2, team_1, year)
         team_1_output = self.model.predict(x_test)[0][0]
-        print(f'team 1 winning chances: {team_1_output}') #---------
-        print(f'team 2 winning chances: {team_2_output}') #---------
         if team_2_output > team_1_output:
             return team_2
         else:
