@@ -15,10 +15,19 @@ class DecisionTreeModel(object):
     def make_prediction(self, team_1, team_2, year):
         x_test = NBADataService.get_x_test(team_1, team_2, year)
         tree_prediction = self.tree_model.predict(x_test)
-        return tree_prediction
+        if tree_prediction == 1:
+            return f'The predicted winner is: {team_2}'
+        else:
+            return f'The predicted winner is: {team_1}'
+
 
     def save_model(self, file_path):
         joblib.dump(self.tree_model, file_path)
 
     def load_model(self, file_path):
         self.tree_model = joblib.load(file_path)
+
+    def test_model(self):
+        x_test = NBADataService.get_x_test_playoffs()
+        y_test = NBADataService.get_y_test_playoffs()
+        return self.tree_model.score(x_test, y_test)

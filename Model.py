@@ -38,3 +38,8 @@ class Model(object):
 
     def load_model(self, file_path):
         self.model = keras.models.load_model(file_path)
+
+    def test_model(self):
+        x_test = NBADataService.get_x_test_playoffs()
+        y_test = NBADataService.get_y_test_playoffs()
+        return self.model.evaluate(x_test, y_test)
