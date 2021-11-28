@@ -11,4 +11,4 @@ test_tree_model.save_model('decision_tree_model')
 
 #test_model_trained_with_all_13_seasons = Model()
 #test_model_trained_with_all_13_seasons.load_model('test_model_trained_with_all_13_seasons')
-#print(test_model_trained_with_all_13_seasons.make_prediction('Warriors', 'Cavaliers', '2015-16'))
+#print(test_model_trained_with_all_13_seasons.make_prediction('Pistons', 'Cavaliers', '2015-16'))
