@@ -29,12 +29,17 @@ class Model(object):
         x_test = NBADataService.get_x_test(team_2, team_1, year)
         team_1_output = self.model.predict(x_test)[0][0]
         if team_2_output > team_1_output:
-            return team_2
+            return f'The predicted winner is: {team_2}'
         else:
-            return team_1
+            return f'The predicted winner is: {team_1}'
 
     def save_model(self, file_path):
         self.model.save(file_path)
 
     def load_model(self, file_path):
         self.model = keras.models.load_model(file_path)
+
+    def test_model(self):
+        x_test = NBADataService.get_x_test_playoffs()
+        y_test = NBADataService.get_y_test_playoffs()
+        return self.model.evaluate(x_test, y_test)

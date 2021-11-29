@@ -94,11 +94,39 @@ def get_y_train():
                 y_train_list.append(1)
             else:
                 y_train_list.append(0)
-    y_train_data_array = np.asarray(y_train_list).astype(np.float32) #--------
-    np.savetxt('y_train_data', y_train_data_array, ) #--------
     return np.asarray(y_train_list).astype(np.int64)
 
 def get_x_test(team_1, team_2, year):
     return [[get_win_percentage(team_2, year), get_win_percentage(team_1, year),
             get_offensive_rating(team_2, year), get_offensive_rating(team_1, year),
             get_defensive_rating(team_2, year), get_defensive_rating(team_1, year)]]
+
+def get_x_test_playoffs():
+    x_test_list = []
+    for x in ['2007-08', '2009-10', '2012-13', '2015-16']:
+        year = x
+        year_data = pd.read_csv(fr'playoffs_box_score_data\{year}_Playoffs_box_scores.csv')
+        for row in year_data.iterrows():
+            team_2 = to_team_name(row[1][0].split()[0], year)
+            team_1 = to_team_name(row[1][0].split()[2], year)
+            x_test_list.append([
+                get_win_percentage(team_2, year),
+                get_win_percentage(team_1, year),
+                get_offensive_rating(team_2, year) / 120,
+                get_offensive_rating(team_1, year) / 120,
+                get_defensive_rating(team_2, year) / 120,
+                get_defensive_rating(team_1, year) / 120
+            ])
+    return np.asarray(x_test_list).astype(np.float32)
+
+def get_y_test_playoffs():
+    y_test_list = []
+    for x in ['2007-08', '2009-10', '2012-13', '2015-16']:
+        year = x
+        year_data = pd.read_csv(fr'playoffs_box_score_data\{year}_Playoffs_box_scores.csv')
+        for row in year_data.iterrows():
+            if row[1][1] == 'W':
+                y_test_list.append(1)
+            else:
+                y_test_list.append(0)
+    return np.asarray(y_test_list).astype(np.int64)
