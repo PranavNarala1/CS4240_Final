@@ -11,10 +11,10 @@ A discovered side-effect of this model is that it can be used to predict winners
 
 To use the model:
 
-Download the files 
-1. Import them in the program you are using them in.
-2. Use the constructor Model() to create the model.
-3. Use model_name.load_model('test_model_trained_with_all_13_seasons') to load a pretrained model.
-4. Use model_name.make_prediction(team_1, team_2, year) to get a string containing the predicted team to win the series.
+1. Download the files 
+2. Import them in the program you are using them in.
+3. Use the constructor Model() to create the model.
+4. Use model_name.load_model('test_model_trained_with_all_13_seasons') to load a pretrained model.
+5. Use model_name.make_prediction(team_1, team_2, year) to get a string containing the predicted team to win the series.
 
 See documentation for more info.
