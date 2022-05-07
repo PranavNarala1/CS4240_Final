@@ -10,7 +10,7 @@ A discovered side-effect of this model is that it can be used to predict winners
 
 Here are the project sources we got data from:
 
-https://www.kaggle.com/druswick/nba-team-records-historic - 
+https://www.kaggle.com/druswick/nba-team-records-historic - nba_team_win.csv
 
 https://www.kaggle.com/nathanlauga/nba-games?select=games.csv - 
 
