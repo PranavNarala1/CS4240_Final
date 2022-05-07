@@ -10,13 +10,13 @@ A discovered side-effect of this model is that it can be used to predict winners
 
 Here are the project sources we got data from:
 
-https://www.kaggle.com/druswick/nba-team-records-historic
+https://www.kaggle.com/druswick/nba-team-records-historic - 
 
-https://www.kaggle.com/nathanlauga/nba-games?select=games.csv
+https://www.kaggle.com/nathanlauga/nba-games?select=games.csv - 
 
-https://www.nba.com/stats/teams/advanced/?sort=W&dir=-1&Season=2017-18&SeasonType=Regular%20Season
+https://www.nba.com/stats/teams/advanced/?sort=W&dir=-1&Season=2017-18&SeasonType=Regular%20Season - 
 
-https://www.kaggle.com/mur418/nba-box-scores-19902020-regular-and-playoffs?select=2017-18_Regular_box_scores.csv
+https://www.kaggle.com/mur418/nba-box-scores-19902020-regular-and-playoffs?select=2017-18_Regular_box_scores.csv - playoffs_box_score_data, regular_season_box_score_data
 
 
 To use the model:
